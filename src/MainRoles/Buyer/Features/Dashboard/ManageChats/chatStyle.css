@@ -1,0 +1,94 @@
+.name__chat {
+  display: flex;
+  justify-content: space-between;
+}
+.name__chat .flex-name {
+  display: flex;
+  align-items: center;
+}
+.name__chat .flex-name .title__ p {
+  background-color: rgb(244, 246, 248);
+  border-radius: 50%;
+  border: 1px solid rgb(145, 158, 171);
+  padding: 0.4rem 0.5rem;
+  color: rgb(145, 158, 171);
+}
+.name__chat .flex-name .name_des h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(49, 63, 79);
+}
+.name__chat .flex-name .name_des p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgb(99, 115, 129);
+}
+.name__chat .minut {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgb(145, 158, 171);
+}
+
+.main-chat-section {
+  position: relative;
+}
+.main-chat-section .name__chat_detail {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(238, 238, 238);
+}
+.main-chat-section .name__chat_detail .flex-name {
+  display: flex;
+  align-items: center;
+}
+.main-chat-section .name__chat_detail .flex-name .title__ p {
+  background-color: rgb(244, 246, 248);
+  border-radius: 50%;
+  border: 1px solid rgb(145, 158, 171);
+  padding: 0.4rem 0.5rem;
+  color: rgb(145, 158, 171);
+}
+.main-chat-section .name__chat_detail .flex-name .name_des h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.main-chat-section .name__chat_detail .flex-name .name_des p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgb(99, 115, 129);
+}
+.main-chat-section .name__chat_detail .minut {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgb(145, 158, 171);
+}
+.main-chat-section .valleyhome {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(238, 238, 238);
+}
+.main-chat-section .valleyhome p {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.main-chat-section .user-chatting-box {
+  position: absolute;
+  bottom: -42.8rem;
+  width: 100%;
+}
+.main-chat-section .user-chatting-box input {
+  width: 100%;
+  padding: 0.8rem 2rem;
+  border: 1px solid rgb(238, 238, 238);
+  position: relative;
+}
+.main-chat-section .user-chatting-box .normal {
+  position: absolute;
+  left: 1%;
+  top: 21%;
+}
+.main-chat-section .user-chatting-box .gallery {
+  position: absolute;
+  right: 1%;
+  top: 21%;
+}/*# sourceMappingURL=chatStyle.css.map */

@@ -1,0 +1,48 @@
+.modal-media {
+  width: 800px !important;
+  height: 600px !important;
+  max-height: 100% !important;
+  object-fit: contain;
+} 
+
+.modal-video{
+  width: 400px !important;
+  height: 100px !important;
+  object-fit: cover;
+}
+
+/* Mobile responsive video styles */
+@media (max-width: 768px) {
+  .detail-gallery-slider video {
+    max-height: 250px !important;
+    width: 100% !important;
+    object-fit: cover;
+    /* margin-top: 40px; */
+  }
+  
+  .modal-media {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px !important;
+  }
+  
+  .detail-gallery-slider-mini video {
+    max-height: 60px !important;
+    width: 100% !important;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 576px) {
+  .detail-gallery-slider video {
+    max-height: 200px !important;
+  }
+  
+  .modal-media {
+    max-height: 250px !important;
+  }
+  
+  .detail-gallery-slider-mini video {
+    max-height: 50px !important;
+  }
+}

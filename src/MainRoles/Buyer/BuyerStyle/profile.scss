@@ -1,0 +1,214 @@
+
+.bg-white-shadow {
+    background-color: #fff;
+    box-shadow:
+        0px 12px 26px -4px rgba(145, 158, 171, 0.12),
+        0px 0px 2px 0px rgba(145, 158, 171, 0.2);
+    border-radius: 1rem;
+}
+
+.card-shadow{
+    box-shadow:
+        0px 12px 26px -4px rgba(145, 158, 171, 0.12),
+        0px 0px 2px 0px rgba(145, 158, 171, 0.2);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+
+.text-medium-grey{
+    color: #919EAB;
+}
+
+
+.file-upload{
+    background-color: #F4F6F8;
+    border-radius: 1.1rem;
+    overflow: hidden;
+    padding: .6rem;
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 6/2;
+    position: relative; 
+    .uploaded-image{
+        width: 100%;
+        height: 100%;
+        border-radius: .5rem;
+        object-fit: cover;
+    }
+    .upload-icon{
+        position: absolute;
+        top: 1rem;
+        right: 1.2rem;
+        display: flex;
+        align-items: start;
+        gap: .5rem;
+    }
+}
+
+.btn-profile-edit {
+    background-color: rgba(244, 246, 248, 1);
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    img{
+        width: 1.2rem;
+    }
+}
+.btn-profile-delete {
+    background-color: rgba(255, 86, 48, 0.08);
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    img{
+        width: 1.2rem;
+    }
+}
+
+
+
+.profile-wapper {
+    .profile-hero {
+        .hero-content {
+            margin-top: 1rem;
+            .profile-img {
+                .profile-img-wrapper {
+                    display: grid;
+                    place-content: center;
+                    border-radius: 50%;
+                    border: 8px solid rgba(255, 255, 255, 1);
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
+                    margin-top: -6rem;
+                    overflow: hidden;
+                    img {
+                        width: 10rem;
+                        height: 10rem;
+                        aspect-ratio: 1/1;
+                    }
+                }
+            }
+            .hero-tabs {
+                h4 {
+                    margin-top: 1rem;
+                    font-weight: 500;
+                    font-size: 1.2rem;
+                }
+                .nav-tabs {
+                    box-shadow: 0px 0px 5px 0px rgba(145, 158, 171, 0.14);
+                    padding: 0.3rem 0.6rem;
+                    border-radius: 0.5rem;
+                    .nav-item {
+                        .nav-link {
+                            background-color: #fff;
+                            color: #919eab;
+                            padding: 0.6rem 1rem;
+                            font-size: 1rem;
+                            border: unset;
+                            border-radius: 0.5rem;
+                            width: 6.6rem;
+                            &.active {
+                                background-color: rgba(0, 167, 111, 0.1);
+                                color: #00a76f;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.support-detail{
+    .contact-info{
+        display: flex;
+        gap: .6rem;
+        border: 1px solid #00a76f;
+        background-color: rgba(0, 167, 111, 0.08);
+        padding:1rem .75rem;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+        .contact-icon{
+            img{
+                width: 2.7rem; 
+            }    
+        }
+        h5{
+            font-size: 1.125rem; 
+        }  
+        h6{
+            font-size: .95rem;
+            color: #637381;
+            font-family: 600;
+            margin-bottom: 0;
+        }
+    }    
+    .other-detail{
+        p{
+            font-size: 1rem;
+            font-weight: 600;
+            color: #637381; 
+            line-height: 1.2;
+        }
+        .btn.btn-dark{
+            border-radius: .65rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+    }
+}
+
+.verifyed-icon{
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        background-image: url('@/public/assets/images/profile/verify.svg');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 2rem;
+        height: 2rem;
+        display: inline-block;
+        right: .4rem;
+        top: 20%;
+    }
+}
+
+.swtich-container{
+    border-radius: .5rem;
+    border: 1px solid #637381;
+    background-color: rgb(255, 255, 255);   
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    img{
+        width: 2.5rem; 
+    }
+    label{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        span{
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.bg-border-light-green{
+    border: 1px solid #00a76f;
+    background-color: rgba(0, 167, 111, 0.08);
+    color: #004B50;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .our-dashbord.dashbord .container-fluid {
+        padding-inline: 1rem;
+    }
+    .hero-content{
+        flex-wrap: wrap;
+    }
+}

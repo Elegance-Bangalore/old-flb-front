@@ -1,0 +1,50 @@
+@import "../../../node_modules/slick-carousel/slick/slick.scss";
+@import "./slick-theme.css";
+@import "./components/custom-slick";
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "./main.scss";
+@import "./menu.css";
+@import "./megadropdown.css";
+@import "./dashbord_navitaion.css";
+@import "./ace-responsive-menu.css";
+@import "./components/input-range-slider";
+@import "./components/custom_theme.scss";
+@import "./components/dashboard.scss";
+@import "./responsive.css";
+@import "node_modules/react-modal-video/scss/modal-video.scss";
+
+.parent-menu-active > .pro-inner-item > .pro-item-content {
+    color: var(--color-primary) !important;
+}
+
+.parent-menu-active {
+    color: #00a76f;
+
+    .inactive-mobile-menu {
+        color: #484848 !important;
+    }
+}
+// .inactive-mobile-menu{
+//     color: #484848 !important;
+
+// }
+.footerInput {
+    &::placeholder {
+        color: #fff;
+    }
+}
+.margin0 {
+    margin-bottom: 0 !important;
+}
+.gm-style-iw-d img {
+    margin-bottom: 0 !important;
+}
+.gm-style-iw-d p {
+    line-height: 26px !important;
+}
+// .gm-style .gm-style-iw-tc{
+//     display: none !important;
+// }
+// .gm-ui-hover-effect{
+//     display: none !important;
+// }

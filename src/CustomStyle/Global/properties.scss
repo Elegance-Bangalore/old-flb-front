@@ -1,0 +1,207 @@
+
+.bg-white-shadow {
+    background-color: #fff;
+    box-shadow:
+        0px 12px 26px -4px rgba(145, 158, 171, 0.12),
+        0px 0px 2px 0px rgba(145, 158, 171, 0.2);
+    border-radius: 1rem;
+}
+
+.card-shadow{
+    box-shadow:
+        0px 12px 26px -4px rgba(145, 158, 171, 0.12),
+        0px 0px 2px 0px rgba(145, 158, 171, 0.2);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+
+.text-medium-grey{
+    color: #919EAB;
+}
+
+
+.file-upload{
+    background-color: #F4F6F8;
+    border-radius: 1.1rem;
+    overflow: hidden;
+    padding: .6rem;
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 6/2;
+    position: relative; 
+    .uploaded-image{
+        width: 100%;
+        height: 100%;
+        border-radius: .5rem;
+        object-fit: cover;
+    }
+    .upload-icon{
+        position: absolute;
+        top: 1rem;
+        right: 1.2rem;
+        display: flex;
+        align-items: start;
+        gap: .5rem;
+    }
+}
+
+.btn-profile-edit {
+    background-color: rgba(244, 246, 248, 1);
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    img{
+        width: 1.2rem;
+    }
+}
+.btn-profile-delete {
+    background-color: rgba(255, 86, 48, 0.08);
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    img{
+        width: 1.2rem;
+    }
+}
+
+
+
+.pill-btn-green{
+    border-radius: .5rem;
+    border: 1px solid #00a76f;
+    background-color: rgba(0, 167, 111, 0.08);
+    color: #00a76f;
+    font-weight: 600;
+}
+
+.pill-btn-red{
+    border-radius: .5rem;
+    border: 1px solid #FF5630;
+    background-color:rgba(255, 86, 48, 0.05);
+    color: #FF5630;
+    font-weight: 600;
+}
+
+.pill-btn-gray{
+    border-radius: .5rem;
+    border: 1px solid #637381;
+    background-color: rgba(244, 246, 248, 1);
+    color: #637381;
+    font-weight: 600;
+}
+
+.btn-upgrade{
+    border-radius: 1rem;
+    background-color: #00a76f;
+    color: #fff;
+    border: 0;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: .5rem 1.2rem;
+    img{
+        width: 1rem;
+    }
+}
+
+
+.properties-details{
+    .upper-content{
+
+    }
+    .properties-content{
+        h3{
+            font-size: 1.55rem;
+        }
+        h5{
+            font-size: 1.125rem;
+            margin-bottom: .75rem;
+        }
+        p{
+            font-size: .75rem;
+            line-height: 1;
+            margin-bottom: .5rem;
+            color: #637381;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+    .bottom-content{
+        h2{
+            font-size: 1.85rem;
+            font-weight: 800;
+        }
+        .properties-action{
+            
+        }
+    }
+}
+
+
+
+.support-detail{
+    .contact-info{
+        display: flex;
+        gap: .6rem;
+        border: 1px solid #00a76f;
+        background-color: rgba(0, 167, 111, 0.08);
+        padding:1rem .75rem;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+        .contact-icon{
+            img{
+                width: 2.7rem; 
+            }    
+        }
+        h5{
+            font-size: 1.125rem; 
+        }  
+        h6{
+            font-size: .95rem;
+            color: #637381;
+            font-family: 600;
+            margin-bottom: 0;
+        }
+    }    
+    .other-detail{
+        p{
+            font-size: 1rem;
+            font-weight: 600;
+            color: #637381; 
+            line-height: 1.2;
+        }
+        .btn.btn-dark{
+            border-radius: .65rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+    }
+}
+
+
+.properties-image{
+    img{
+        width: 100%;
+        // aspect-ratio: 1/1;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .our-dashbord.dashbord .container-fluid {
+        padding-inline: 1rem;
+    }
+    .properties-details {
+        .upper-content {
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .bottom-content {
+            margin-bottom: 1.5rem;
+            align-items: center;
+            .properties-action {
+                flex-wrap: wrap;
+                justify-content: end;
+            }
+        }
+    }
+}

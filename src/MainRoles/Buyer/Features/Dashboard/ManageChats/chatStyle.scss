@@ -1,0 +1,117 @@
+.name__chat {
+  display: flex;
+  justify-content: space-between;
+
+  .flex-name {
+    display: flex;
+    align-items: center;
+
+    .title__ {
+      p {
+        background-color: rgba(244, 246, 248, 1);
+        border-radius: 50%;
+        border: 1px solid rgba(145, 158, 171, 1);
+        padding: 0.4rem 0.5rem;
+        color: rgba(145, 158, 171, 1);
+      }
+    }
+
+    .name_des {
+      h6 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: rgb(49 63 79);
+      }
+
+      p {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: rgba(99, 115, 129, 1);
+      }
+    }
+  }
+
+  .minut {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(145, 158, 171, 1);
+  }
+}
+
+.main-chat-section {
+  position: relative;
+
+  .name__chat_detail {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(238, 238, 238, 1);
+
+    .flex-name {
+      display: flex;
+      align-items: center;
+
+      .title__ {
+        p {
+          background-color: rgba(244, 246, 248, 1);
+          border-radius: 50%;
+          border: 1px solid rgba(145, 158, 171, 1);
+          padding: 0.4rem 0.5rem;
+          color: rgba(145, 158, 171, 1);
+        }
+      }
+
+      .name_des {
+        h6 {
+          font-size: 1rem;
+          font-weight: 600;
+        }
+
+        p {
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: rgba(99, 115, 129, 1);
+        }
+      }
+    }
+
+    .minut {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(145, 158, 171, 1);
+    }
+  }
+
+  .valleyhome {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(238, 238, 238, 1);
+    p {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
+
+  .user-chatting-box {
+    position: absolute;
+    bottom: -42.8rem;
+    width: 100%;
+    input {
+      width: 100%;
+      padding: 0.8rem 2rem;
+      border: 1px solid rgba(238, 238, 238, 1);
+
+      position: relative;
+    }
+    .normal {
+      position: absolute;
+      left: 1%;
+      top: 21%;
+    }
+
+    .gallery {
+      position: absolute;
+      right: 1%;
+      top: 21%;
+    }
+  }
+}
