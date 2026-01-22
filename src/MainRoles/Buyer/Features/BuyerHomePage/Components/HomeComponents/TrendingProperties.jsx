@@ -60,8 +60,8 @@ function TrendingProperties({ settings }) {
   }, [city, inView]);
 
   return (
-    <section ref={ref}>
-      <div className="container fl-container">
+    <section ref={ref} className="trending-sections-bg">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-lg-6 col-md-8 mx-auto">
             <div className="text-center">
@@ -71,10 +71,10 @@ function TrendingProperties({ settings }) {
               <p className="fl-ff-main fl-text-dark fw-semi-bold fs-22 mb-5">
                 Most popular choices around the country
               </p>
-              <div className="row justify-content-center buyer-home-trending">
+              <div className="trending-btn">
                 {cityArray?.map((element, index) => (
                   <div
-                 className="col-5  col-md-4"
+                 className=""
                     key={index}
                     onClick={() => setCity(element.name)}
                     style={{ cursor: "pointer" }}

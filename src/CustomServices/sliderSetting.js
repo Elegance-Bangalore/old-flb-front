@@ -32,10 +32,10 @@ export const settings = {
 };
   
  export const setting2 = {
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
     dots: false,
-    centerMode: true,
+    centerMode: false,
     centerPadding: "0",
     responsive: [
       {

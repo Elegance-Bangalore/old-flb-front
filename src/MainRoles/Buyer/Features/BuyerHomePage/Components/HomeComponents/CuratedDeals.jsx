@@ -63,20 +63,31 @@ function CuratedDeals({ settings, setting2 }) {
     <>
     
       {curatedDeals?.length ? (
-        <div className="container fl-container py-5 curated_section-wrapper">
+        <div className="container fl-container curated_section-wrapper">
           <div className="text-center pb-4">
             <h2 className="fl-ff-main fl-text-dark fl-heading-2 mb-1">
               Featured Properties 
             </h2>
-            <p className="fl-ff-main fl-text-dark fw-semi-bold fs-22 mb-5">
+            <p className="fl-ff-main fl-text-dark fw-semi-bold fs-22 ">
               Exclusive Deals Just For You
             </p>
           </div>
           {curatedDeals?.length > 2 ? (
             <Slider {...setting2}>
               {curatedDeals?.map((element, index) => (
-                <div className="slide-item" key={index}>
-                  <div className="fl-curated-card">
+                <div className="slide-item " key={index}>
+                  <div className="PropertyCard-wrapper ">
+                     <div className="favorite-icon favorite-checkbox-wrapper">
+                            <Checkbox
+                              onChange={() =>
+                                toogleSaveProperty(element?._id, index)
+                              }
+                              {...label}
+                              icon={<FavoriteBorder />}
+                              checkedIcon={<Favorite />}
+                              checked={element.saved}
+                            />
+                          </div>
                     <Link
                       to={navigateToDetail(
                         element?.propertyType,
@@ -84,6 +95,7 @@ function CuratedDeals({ settings, setting2 }) {
                         element?.propertyCode
                       )}
                       target="_blank"
+                      className="PropertyCard-link"
                     >
                       <div className="curated-img">
                         <img
@@ -96,40 +108,29 @@ function CuratedDeals({ settings, setting2 }) {
                           alt="img"
                         />
                       </div>
+                        <div className="card-info">
+                          <h4 className="property-title">{element?.propertyTitle}</h4>
+                          <p className="property-location" >
+                            {element?.city}, {element?.state}
+                          </p>
+                        </div>
                     </Link>
                     <div className="curated-detail">
-                      <div className="curated-detail-content-wapper fl-card-shadow">
-                        <div className="curated-detail-image-wapper d-flex justify-content-between align-items-center">
-                          <div className="curated-profile-image">
+                      <div className="d-flex align-items-center justify-content-between ">
+                       <div className="curated-profile-image d-flex align-items-center">
                             <img
                               src={element?.logo || element?.heroImage}
                               alt="profile"
                               className=""
                             />
-                          </div>
-                          <div className="favorite-icon me-md-4">
-                            <Checkbox
-                              onChange={() =>
-                                toogleSaveProperty(element?._id, index)
-                              }
-                              {...label}
-                              icon={<FavoriteBorder />}
-                              checkedIcon={<Favorite />}
-                              checked={element.saved}
-                            />
-                          </div>
-                        </div>
-                        <div className="curated-detail-content mt-2">
-                          <h4>{element?.propertyTitle}</h4>
-                          <p>
-                            {element?.city}, {element?.state}
-                          </p>
-                        </div>
-                        <div className="d-flex flex-wrap justify-content-between align-items-end">
-                          <h3 className="fl-text-dark mb-0 fs-3">
+                             <h3 className="main-info m-0">
                             {formatNumberInCr(element?.price)}{" "}
-                            <span className="fs-5 fw-normal">Onwards</span>
+                            <span className="small-title">Onwards</span>
                           </h3>
+                          </div>
+                      
+                        <div className="pe-3">
+                         
                           <Link
                             to={navigateToDetail(
                               element?.propertyType,
@@ -138,7 +139,7 @@ function CuratedDeals({ settings, setting2 }) {
                             )}
                             target="_blank"
                           >
-                            <button className="fl-btn-yellow">Explore</button>
+                            <button className="fl-btn-green">Explore</button>
                           </Link>
                         </div>
                       </div>

@@ -363,11 +363,10 @@ body {
 }
 
 .fl-light-gray-pill {
-  border-radius: 8px;
-  border: 1px solid $green;
-  background: "gray";
-  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
-  color: $green;
+  border-radius: 30px;
+  border: 1px solid $green-light;
+  background: $green-light;
+  color: $white;
   text-align: center;
   text-align: center;
   padding-block: 0.5rem;
@@ -381,14 +380,17 @@ body {
   label {
     margin: 0;
   }
+  &:hover{
+    background: $green;
+  }
 }
 
 .fl-light-green-pill{ 
-  border-radius: 8px;
+  border-radius: 30px;
   border: 1px solid $green;
-  background: linear-gradient(0deg, rgba(0, 167, 111, 0.05) 0%, rgba(0, 167, 111, 0.05) 100%), #75dd9924;
+  background: $green;
   box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
-  color: $green;
+  color: $white;
   text-align: center;
   padding-block: 0.5rem;
   width: 100%; 
@@ -452,6 +454,39 @@ body {
     }
   }
 }
+.trending-sections-bg{
+padding:4rem;
+  background: #F0FFFA;
+  background: url("../../CustomAssets/BuyerImages/green-grass.png") repeat-x center bottom #e3fcf4;
+  background-size: 30%;
+  margin: 4rem 0 0;
+  .trending-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 5rem;
+  }
+}
+.section-counter{
+  background: 
+    linear-gradient(0deg, transparent 24%, rgba(118, 194, 91, 0.10) 25%, rgba(118, 194, 91, 0.10) 26%, transparent 27%, transparent 74%, rgba(118, 194, 91, 0.10) 75%, rgba(118, 194, 91, 0.10) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(118, 194, 91, 0.10) 25%, rgba(118, 194, 91, 0.10) 26%, transparent 27%, transparent 74%, rgba(118, 194, 91, 0.10) 75%, rgba(118, 194, 91, 0.10) 76%, transparent 77%, transparent),
+    $green;
+  background-size: 60px 60px;
+  padding: 3rem;
+  border-top: 5px solid $green-light;
+   border-bottom: 5px solid $green-light;
+  .counter-content{
+    color: $green-light;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap:10px;
+    justify-content: center;
+  }
+}
 .PropertyCard-wrapper{
   border-radius: 2rem;
   background: $white;
@@ -469,6 +504,18 @@ body {
       height: 1.5rem;
       color: $white;
      }
+  }
+  .badge-sponsor{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: $yellow;
+    color: $dark;
+    padding: 0.2rem 0.8rem!important;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 1rem;
+    z-index: 1;
   }
   .PropertyCard-link{
     cursor: pointer;
@@ -489,7 +536,7 @@ body {
     bottom: 0.5rem;
     left: 0.5rem;
     right: 0.5rem;
-    border-radius:0 0 2rem 2rem;
+    border-radius:0 0 1.5rem 1.5rem;
     padding:0 1.5rem;
     color: #fff;
     height: 10rem;
@@ -523,8 +570,15 @@ body {
       margin: 0 0 10px;
       opacity: 0.8;
     }
-    
   }
+   .curated-profile-image{
+    padding: 0.5rem;
+      img {
+        border-radius: 50rem;
+      width: 5rem;
+      height: 5rem;
+      }
+    }
   .small-title{
     font-size: 0.8rem;
     display: block;

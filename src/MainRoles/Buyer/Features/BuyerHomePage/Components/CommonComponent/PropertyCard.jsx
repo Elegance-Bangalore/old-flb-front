@@ -28,17 +28,11 @@ const PropertyCard = ({ property, feature = false, banner = false }) => {
   const currentDate = new Date();
   const isNew = differenceInDays(currentDate, createdDate) <= 15;
   const badgeStyle = {
-    position: "absolute",
-    top: "10px",
-    right: "10px",
-    padding: "8px",
+    position: "absolute"
   };
 
   const sponsorStyle = {
-    position: "absolute",
-    top: "10px",
-    left: "10px",
-    padding: "8px",
+    position: "absolute"
   };
 
   // Computed flags for debugging and order verification
@@ -101,7 +95,7 @@ const PropertyCard = ({ property, feature = false, banner = false }) => {
        
 
         {sponsoredActive && (
-          <span className="badge bg-warning text-dark" style={sponsorStyle}>
+          <span className="badge-sponsor" style={sponsorStyle}>
             SPONSORED {" "}
           </span>
         )}
