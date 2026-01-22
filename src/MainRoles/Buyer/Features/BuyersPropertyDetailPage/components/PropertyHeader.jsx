@@ -70,8 +70,8 @@ function PropertyHeader({
 
   return (
     <>
-      <section className="fl-bg-white">
-        <div className="container fl-container pt-5">
+      <section className="">
+        <div className="container fl-container ">
           <div className="explore-wrapper fl-glass-bg property-detail-wrapper rounded-5 p-2">
             <div className="d-flex d-flex flex-column flex-lg-row">
               <div className="w-auto mb-3 mb-md-0 text-center">

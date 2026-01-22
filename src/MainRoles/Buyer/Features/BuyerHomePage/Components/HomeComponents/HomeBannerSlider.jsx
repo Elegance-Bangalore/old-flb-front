@@ -9,6 +9,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
+import MainSearch from "../../Layouts/MainSearch";
+import PropertyTypeCard from "./PropertyTypeCard";
 
 const HomeBannerSlider = () => {
   const settings = {
@@ -61,17 +63,20 @@ const HomeBannerSlider = () => {
     return (
       <div className="fl-home-banner-hero">
         <div className="container fl-container text-center pb-5">
-          <h1 className="text-white fl-banner-heading fs-1 my-3">
+          <h1 className="text-white m-0 mb-1">
             India's Largest online portal to Buy, Sell and explore farmlands and
             beyond
           </h1>
-          <h2 className="text-white fw-normal fl-banner-heading-normal my-3">
-            #FarmlandbazaarDekhaKya <br />
+          <h2 className="text-white fw-normal fl-banner-heading-normal mb-4">
+           List, buy, or sell land anywhere in India with ease.  #FarmlandbazaarDekhaKya <br />
           </h2>
-          <h2 className="text-white fw-normal fl-banner-heading-normal">
-            List, buy, or sell land anywhere in India with ease.
-          </h2>
+          <MainSearch />
+          
         </div>
+          <div className="bottom-Card">
+              
+            <PropertyTypeCard />
+          </div>
       </div>
     );
   }

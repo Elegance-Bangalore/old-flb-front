@@ -29,28 +29,24 @@ function BuyerMenu() {
   return (
     <>
       <div className="header-drop-icons buyer-menu-postion">
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end">
+        <ul className="navbar-nav me-auto d-flex align-items-center justify-content-end">
           {/* <li className="me-3 fl-white-free-btn"> */}
           <li className="me-3">
 
-            <button className="fl-btn-yellow mt-2" onClick={postProperty}>
-              <Link
-                className="fl-ff-main fl-text-dark"
-              >
-                Post Your Property
-              </Link>
+            <button className="fl-btn-green" onClick={postProperty}>
+              Post Your Property
             </button>
           </li>
           <li className="nav-item dropdown">
             <a
-              className="nav-link dropdown-toggle me-2 text-white"
+              className="nav-link dropdown-toggle me-2 main-menu-color"
               id="userDrop"
               href="#"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <User size="32" />
+              <User size="24" />
             </a>
             <ul
               className="dropdown-menu border-radius-10"
@@ -135,7 +131,7 @@ function BuyerMenu() {
           </li>
           <li className="nav-item dropdown">
             <a
-              className="nav-link dropdown-toggle text-white"
+              className="nav-link dropdown-toggle main-menu-color"
               id="menuDrop"
               href="#"
               role="button"
@@ -144,14 +140,14 @@ function BuyerMenu() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
+                width="24"
+                height="24"
                 viewBox="0 0 30 30"
-                fill="none"
+                fill="currentColor"
               >
-                <rect x="11" y="6" width="14" height="2.5" fill="white" />
-                <rect x="5" y="21" width="14" height="2.5" fill="white" />
-                <rect x="4" y="13.5" width="22" height="2.5" fill="white" />
+                <rect x="11" y="6" width="14" height="2.5" fill="currentColor" />
+                <rect x="5" y="21" width="14" height="2.5" fill="currentColor" />
+                <rect x="4" y="13.5" width="22" height="2.5" fill="currentColor" />
               </svg>
             </a>
             <ul

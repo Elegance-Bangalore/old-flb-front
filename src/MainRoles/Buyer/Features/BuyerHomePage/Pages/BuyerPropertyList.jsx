@@ -262,6 +262,7 @@ const BuyerPropertyList = () => {
         />
         <BuyerHeader />
         <DefaultMobileMenu />
+         <div className="inner-page-default"></div>
         <section>
           <div className="container fl-container">
             <div className="row">

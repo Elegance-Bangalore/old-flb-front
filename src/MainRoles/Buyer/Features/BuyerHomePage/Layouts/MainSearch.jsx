@@ -1,43 +1,35 @@
 import React, { useEffect, useState, useRef } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import logo from "../../../../../CustomAssets/BuyerImages/Logo.png";
-import logoColored from "../../../../../CustomAssets/BuyerImages/logo-colored.png";
-import cross from "../../../../../CustomAssets/BuyerImages/fl-cross.svg";
+import cross from "@/CustomAssets/BuyerImages/fl-cross.svg";
 import Grow from "@mui/material/Grow";
-import { SearchNormal1, ArrowDown2 } from "iconsax-react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setPreviousUrl } from "@/Redux/Auth/authSlice";
+import { SearchNormal1 } from "iconsax-react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import SearchSection from "./SearchSection";
 import useURLFilters from "@/CustomServices/useURLFilters";
 import { selectFilter } from "@/features/properties/propertiesSlice";
 import {
   capitalizeArray,
   capitalizeFirstLetter,
-  farmland,
 } from "@/CustomServices/Constant";
-import BuyerMenu from "./BuyerMenu";
 import CitySelectionDropdown from "./CitySelectionDropdown";
-import "./CitySelectionDropdown.css";
 
-// New Backdrop component
+// Backdrop component
 const Backdrop = ({ show, onClick }) => {
   return show ? <div className="backdrop" onClick={onClick}></div> : null;
 };
 
-const BuyerHeader = ({ headerHide }) => {
+const MainSearch = ({ headerHide = false }) => {
   const location = useLocation();
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [checked, setChecked] = useState(false);
   const [cityDropdownOpen, setCityDropdownOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const cityDropdownRef = useRef(null);
-  const navigate = useNavigate();
   const { cities } = useSelector(selectFilter);
   const capitalizedCities = capitalizeArray(cities);
   const [filters, setFilters] = useURLFilters();
-  const urls = ["/login", "/register", "/forgot-password", "/reset-password"];
-
+  const [closeTimeout, setCloseTimeout] = useState(null);
+  
   const placeholders = [
     "'Managed Farms near Hyderabad'",
     "'Farmland with Clubhouse'",
@@ -47,8 +39,6 @@ const BuyerHeader = ({ headerHide }) => {
     "'10 bigha Agricultural Land near Chennai'",
   ];
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
-
-
 
   const updateFilters = (e) => {
     e.preventDefault();
@@ -86,10 +76,7 @@ const BuyerHeader = ({ headerHide }) => {
     });
   };
 
-  const [closeTimeout, setCloseTimeout] = useState(null);
-
   const openCityDropdown = () => {
-    // Clear any existing timeout
     if (closeTimeout) {
       clearTimeout(closeTimeout);
       setCloseTimeout(null);
@@ -98,7 +85,6 @@ const BuyerHeader = ({ headerHide }) => {
   };
 
   const closeCityDropdown = () => {
-    // Set a timeout to close after 3 seconds
     const timeout = setTimeout(() => {
       setCityDropdownOpen(false);
     }, 100);
@@ -113,49 +99,19 @@ const BuyerHeader = ({ headerHide }) => {
   };
 
   useEffect(() => {
-    if (location.pathname && !urls.includes(location.pathname)) {
-      dispatch(setPreviousUrl(location.pathname));
-    }
-  }, [location.pathname, urls, dispatch]);
-
-  useEffect(() => {
     const interval = setInterval(() => {
       setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
     }, 2000);
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY >= 80) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  
-
   return (
     <>
-      <header className={`buyer-home-header ${isScrolled ? 'buyer-header-scroll' : ''}`}>
-        <nav className="buyer-home-nav navbar navbar-expand-lg navbar-light  py-1.5">
-          <div className="container-fluid">
-            <div style={{ minWidth: "23rem", maxWidth: "23rem" }}>
-              <Link to="/" className="buyer-home-logo navbar-brand">
-                <img src={isScrolled ? logoColored : logo} alt="Logo" className="img-fluid header-logo" />
-              </Link>
-            </div>
-
-            {!headerHide && (
+      {!headerHide && (
               <>
                 <Backdrop show={checked} onClick={handleGlowChange} />
                 <div
-                  className="d-flex mx-lg-auto fl-header-search-wrapper"
+                  className="d-flex mx-lg-auto fl-header-search-wrapper w-100"
                   style={{ zIndex: 2 }}
                 >
                   <div className="w-100 position-relative">
@@ -191,10 +147,7 @@ const BuyerHeader = ({ headerHide }) => {
                           style={{ 
                             width: "max-content", 
                             minWidth:"10rem",
-                            padding:"0.375rem 0.75rem",
-
                             height:"3rem",
-                            
                             cursor: "pointer",
                             border: "1px solid #ced4da",
                             borderRadius: "0.375rem",
@@ -279,15 +232,8 @@ const BuyerHeader = ({ headerHide }) => {
                 </div>
               </>
             )}
-
-            <div style={{ minWidth: "23rem", maxWidth: "23rem" }}>
-              <BuyerMenu />
-            </div>
-          </div>
-        </nav>
-      </header>
     </>
   );
 };
 
-export default BuyerHeader;
+export default MainSearch;

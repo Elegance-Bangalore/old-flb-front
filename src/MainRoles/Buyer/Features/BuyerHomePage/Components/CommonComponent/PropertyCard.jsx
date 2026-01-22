@@ -84,7 +84,7 @@ const PropertyCard = ({ property, feature = false, banner = false }) => {
   return (
     <>
       <div
-        className="fl-property-card border fl-card-border border-raidus-10 relative"
+        className="fl-property-card border PropertyCard-wrapper relative"
         style={{ overflow: "hidden" }}
       >
         {property?.propertyStatus === "sold-out" ? (
@@ -105,6 +105,20 @@ const PropertyCard = ({ property, feature = false, banner = false }) => {
             SPONSORED {" "}
           </span>
         )}
+         <div className="favorite-checkbox-wrapper">
+                <Checkbox
+                  className="p-0 fs-3"
+                  checked={saved}
+                  icon={<FavoriteBorder className="property-heart" />}
+                  onChange={() => toogleSaveProperty(property?._id)}
+                  checkedIcon={
+                    <Favorite
+                      className="property-heart"
+                      style={{ color: "red" }}
+                    />
+                  }
+                />
+              </div>
 
         <Link
           to={navigateToDetail(
@@ -113,20 +127,35 @@ const PropertyCard = ({ property, feature = false, banner = false }) => {
             property?.propertyCode
           )}
           target="_blank"
+          className="PropertyCard-link"
         >
           <img
             className="fl-property-card-img w-100 fl-img-4-2"
             src={banner || property?.heroImage}
             alt="proptery"
           />
-        </Link>
-        <div className="fl-bg-dark text-center py-1">
-          <h5 className="fl-ff-main text-white fw-bold text-uppercase mb-0 bg-transparent">
+          <div className="card-info">
+            <div>
+
+             <span className="property-category">
             {feature ? "FEATURED" : formatPropertyType(property?.propertyType)}
-          </h5>
-        </div>
+          </span>
+           <h3 className="property-title">
+                {property?.propertyTitle}
+              </h3>
+               <p
+              className="property-location"
+              title={`${property?.locality} , ${property?.city}`}
+            >
+              {property?.locality}, {property?.city}, {property?.state}
+            </p>
+            </div>
+          </div>
+          
+        </Link>
+       
         <div className="bg-white">
-          <div className="px-4 px-lg-4 py-3">
+          <div className="px-3 py-2">
             <Link
               to={navigateToDetail(
                 property?.propertyType,
@@ -136,9 +165,44 @@ const PropertyCard = ({ property, feature = false, banner = false }) => {
               target="_blank"
               title={property?.propertyTitle}
             >
-              <h3 className="card-title fl-ff-main fl-text-dark fl-text-green-hover">
-                {property?.propertyTitle}
-              </h3>
+ <div className="d-flex justify-content-between">
+              <div className="">
+                  <span className="">
+                  {" "}
+                  <span className="small-title">
+                    Project Area
+                  </span>
+                  <span className="main-info">{property?.totalAcre} {property?.plotArea}</span>
+                  {" "}
+                  {/* <span className="ms-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="19"
+                      viewBox="0 0 18 19"
+                      fill="none"
+                    >
+                      <path
+                        d="M15 9.5C15 6.18629 12.3137 3.5 9 3.5C5.68629 3.5 3 6.18629 3 9.5C3 12.8137 5.68629 15.5 9 15.5C12.3137 15.5 15 12.8137 15 9.5ZM16.5 9.5C16.5 13.6421 13.1421 17 9 17C4.85786 17 1.5 13.6421 1.5 9.5C1.5 5.35786 4.85786 2 9 2C13.1421 2 16.5 5.35786 16.5 9.5ZM10.1252 6.5C10.3709 6.82704 10.5469 7.20938 10.6313 7.625H12V8.75H10.6313C10.3706 10.0338 9.23565 11 7.875 11H7.73303L10.5227 13.7898L9.72727 14.5852L6 10.858V9.875H7.875C8.60978 9.875 9.23482 9.40543 9.4665 8.75H6V7.625H9.4665C9.23482 6.96958 8.60978 6.5 7.875 6.5H6V5.375H12V6.5H10.1252Z"
+                        fill="#00A76F"
+                      />
+                    </svg>
+                  </span>{" "}
+                  <span>{property?.pricePerSqft ? formatNumberInCr(property?.pricePerSqft) : getPerAcre(property.price, property.totalAcre)} / {property?.plotArea ? property?.plotArea : "acre"}</span> */}
+                </span>
+
+              
+              </div>
+              
+                <div className="fl-ff-main fl-text-dark fw-bold">
+                  <span className="main-info">
+                  {formatNumberInCr(property?.price)}{" "}
+                  </span>
+                   <span className="small-title" style={{ fontWeight: "600" }}>
+                    Onwards
+                  </span>
+                </div>
+            </div>
             </Link>
 
              {/* Debug card for order verification  */}
@@ -159,31 +223,16 @@ const PropertyCard = ({ property, feature = false, banner = false }) => {
               </div>
             </div> */}
 
-            <p
-              className="fl-ff-main fl-text-dark fl-fs-18 fw-normal text-truncate text-capitalize"
-              title={`${property?.locality} , ${property?.city}`}
-            >
-              {property?.locality}, {property?.city}, {property?.state}
-            </p>
-            <div className="mb-4" hidden={banner}>
-              <p className="fl-ff-main fl-text-dark fl-fs-14 fw-normal mb-0">
-                <span className="me-1">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                  >
-                    <path
-                      d="M12.2497 11.6667H13.4163V12.8334H0.583008V11.6667H1.74967V1.75008C1.74967 1.42792 2.01084 1.16675 2.33301 1.16675H11.6663C11.9885 1.16675 12.2497 1.42792 12.2497 1.75008V11.6667ZM11.083 11.6667V2.33341H2.91634V11.6667H11.083ZM4.66634 6.41675H6.41634V7.58342H4.66634V6.41675ZM4.66634 4.08342H6.41634V5.25008H4.66634V4.08342ZM4.66634 8.75008H6.41634V9.91675H4.66634V8.75008ZM7.58301 8.75008H9.33301V9.91675H7.58301V8.75008ZM7.58301 6.41675H9.33301V7.58342H7.58301V6.41675ZM7.58301 4.08342H9.33301V5.25008H7.58301V4.08342Z"
-                      fill="#637381"
-                    />
-                  </svg>
-                </span>
+           
+         
+           
+          </div>
+             <div className="postedBy" hidden={banner}>
+              <p className="mb-0">
+              
                 {property?.postedBy && (
                   <Link to={`/developer/${generateDeveloperSlug(property?.postedBy?.companyName || property?.postedBy?.fullName)}/${property?.postedBy?._id}`}>
-                    <span>
+                    <span> Posted by - 
                       {" "}
                       {property?.postedBy?.companyName
                         ? property?.postedBy?.companyName
@@ -199,7 +248,7 @@ const PropertyCard = ({ property, feature = false, banner = false }) => {
                       >
                         <path
                           d="M5 3V4H2.5V9.5H8V7H9V10C9 10.2761 8.77615 10.5 8.5 10.5H2C1.72386 10.5 1.5 10.2761 1.5 10V3.5C1.5 3.22386 1.72386 3 2 3H5ZM10.5 1.5V6L8.603 4.1035L5.60355 7.10355L4.89644 6.39645L7.896 3.3965L6 1.5H10.5Z"
-                          fill="#00A76F"
+                          fill="currentColor"
                         />
                       </svg>
                     </span>
@@ -207,65 +256,6 @@ const PropertyCard = ({ property, feature = false, banner = false }) => {
                 )}
               </p>
             </div>
-            <div className="d-flex justify-content-between align-items-end">
-              <div className="">
-                <h2 className="fl-ff-main fl-text-dark fw-bold">
-                  {formatNumberInCr(property?.price)}{" "}
-                  <span className="fs-6" style={{ fontWeight: "600" }}>
-                    Onwards
-                  </span>
-                </h2>
-                <p className="mb-0 fl-ff-main fl-text-dark fl-fs-14 fw-semi-bold">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="19"
-                      viewBox="0 0 18 19"
-                      fill="none"
-                    >
-                      <path
-                        d="M12.75 14.75H14.25V11H7.5V4.25H3.75V5.75H5.25V7.25H3.75V8.75H6V10.25H3.75V11.75H5.25V13.25H3.75V14.75H5.25V13.25H6.75V14.75H8.25V12.5H9.75V14.75H11.25V13.25H12.75V14.75ZM9 9.5H15C15.4142 9.5 15.75 9.83577 15.75 10.25V15.5C15.75 15.9142 15.4142 16.25 15 16.25H3C2.58579 16.25 2.25 15.9142 2.25 15.5V3.5C2.25 3.08579 2.58579 2.75 3 2.75H8.25C8.66423 2.75 9 3.08579 9 3.5V9.5Z"
-                        fill="#00A76F"
-                      />
-                    </svg>
-                  </span>{" "}
-                  <span className="text-capitalize">
-                    Project Area - {property?.totalAcre} {property?.plotArea}
-                  </span>{" "}
-                  {/* <span className="ms-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="19"
-                      viewBox="0 0 18 19"
-                      fill="none"
-                    >
-                      <path
-                        d="M15 9.5C15 6.18629 12.3137 3.5 9 3.5C5.68629 3.5 3 6.18629 3 9.5C3 12.8137 5.68629 15.5 9 15.5C12.3137 15.5 15 12.8137 15 9.5ZM16.5 9.5C16.5 13.6421 13.1421 17 9 17C4.85786 17 1.5 13.6421 1.5 9.5C1.5 5.35786 4.85786 2 9 2C13.1421 2 16.5 5.35786 16.5 9.5ZM10.1252 6.5C10.3709 6.82704 10.5469 7.20938 10.6313 7.625H12V8.75H10.6313C10.3706 10.0338 9.23565 11 7.875 11H7.73303L10.5227 13.7898L9.72727 14.5852L6 10.858V9.875H7.875C8.60978 9.875 9.23482 9.40543 9.4665 8.75H6V7.625H9.4665C9.23482 6.96958 8.60978 6.5 7.875 6.5H6V5.375H12V6.5H10.1252Z"
-                        fill="#00A76F"
-                      />
-                    </svg>
-                  </span>{" "}
-                  <span>{property?.pricePerSqft ? formatNumberInCr(property?.pricePerSqft) : getPerAcre(property.price, property.totalAcre)} / {property?.plotArea ? property?.plotArea : "acre"}</span> */}
-                </p>
-              </div>
-              <div>
-                <Checkbox
-                  className="p-0 fs-3"
-                  checked={saved}
-                  icon={<FavoriteBorder className="property-heart" />}
-                  onChange={() => toogleSaveProperty(property?._id)}
-                  checkedIcon={
-                    <Favorite
-                      className="property-heart"
-                      style={{ color: "red" }}
-                    />
-                  }
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </>

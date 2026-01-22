@@ -209,17 +209,8 @@ const BuyerPropertyDetail = () => {
         <DefaultMobileMenu />
         {!loader ? (
           <>
-            <section
-              className="fl-property-detail-banner py-0"
-              style={{ backgroundImage: `url(${singleProperty?.heroImage})` }}
-            >
-              <img
-                className="img-fluid w-100"
-                src={singleProperty?.heroImage}
-                alt="banner Image"
-              />
-            </section>
-            <div>
+          <div className="inner-page-default"></div>
+           <div>
               <PropertyHeader
                 singleProperty={singleProperty}
                 scheduleVisit={scheduleVisit}
@@ -231,7 +222,18 @@ const BuyerPropertyDetail = () => {
                 setActiveSection={setActiveSection}
               />
             </div>
-            <section className="fl-bg-white pt-0 pt-md-5 ">
+            {/* <section
+              className="fl-property-detail-banner py-0"
+              style={{ backgroundImage: `url(${singleProperty?.heroImage})` }}
+            >
+              <img
+                className="img-fluid w-100"
+                src={singleProperty?.heroImage}
+                alt="banner Image"
+              />
+            </section> */}
+           
+            <section className=" pt-0 pt-md-5 ">
               <div className="container fl-container">
                 <div className="row">
                   <PropertyNavigation

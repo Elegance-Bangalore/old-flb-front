@@ -26,18 +26,35 @@ function HighlyRecommendedProperty({
   return (
     <>
       {propertiesListCategoryWise?.properties?.length > 2 ? (
-        <section className="property-category-wrapper">
-          <img className="property-category-icon" src={getCategoryImage(repeatedIndex)} alt="cat-bg" />
-          <div
-            className={`fl-home-property-slide-heading-${repeatedIndex} text-center`}
+        <section className="property-category-wrapper px-4 py-0">
+          <div className="row">
+            <div className="col-12 col-md-6 d-flex align-items-center ">
+                   <div
+            className={`fl-home-property-slide-heading text-center`}
           >
             <h2>{propertiesListCategoryWise?.name?.match(/\S+/)}</h2>
             <h3>{propertiesListCategoryWise?.name}</h3>
           </div>
+          
+            </div>
+            <div className="col-12 col-md-6 d-flex align-items-center justify-content-end">
+               <div className="explore-cta-property text-center">
+              <Link to={`/property-list?categoryId=${propertiesListCategoryWise._id}`} className="text-white">
+                <button className="explore-btn">
+                  <span> View All &#x203A; </span>
+                  <span className="title"> {propertiesListCategoryWise?.name}</span>
+                 
+                </button>
+              </Link>
+            </div>
+            </div>
+          
+          </div>
+        
           <div
-            className={`fl-bg-light-${repeatedIndex} py-5 fl-property-slide-container`}
+            className={`fl-property-slide-container`}
           >
-            <div className="container fl-container mb-lg-4">
+            <div className="">
               <Slider {...settings}>
                 {propertiesListCategoryWise?.properties?.map(
                   (element, index) => (
@@ -48,13 +65,7 @@ function HighlyRecommendedProperty({
                 )}
               </Slider>
             </div>
-            <div className="explore-cta-property text-center">
-              <Link to={`/property-list?categoryId=${propertiesListCategoryWise._id}`} className="text-white">
-                <button className="fl-btn-dark">
-                  Explore {propertiesListCategoryWise?.name}
-                </button>
-              </Link>
-            </div>
+           
           </div>
         </section>
       ) : propertiesListCategoryWise?.properties?.length ? (

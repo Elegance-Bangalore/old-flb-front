@@ -1,26 +1,35 @@
 import { Margin } from "@mui/icons-material";
 
 export const settings = {
-    slidesToShow: 3, // Initially, show 1 slide
-    slidesToScroll: 1, // Scroll 1 slide at a time
-    centerPadding: "0", // Adjust spacing between slides
-    responsive: [
-      {
-        breakpoint: 576, // Adjust breakpoint according to your design needs
-        settings: {
-          slidesToShow: 1, // Show 1 slide at this breakpoint
-          slidesToScroll: 1, // Scroll 1 slide at a time
-        },
+  slidesToShow: 5, // Show 4 cards on desktop
+  slidesToScroll: 1, // Scroll 1 slide at a time
+  centerPadding: "0", // Adjust spacing between slides
+  infinite: false,
+  centerMode: false,
+  responsive: [
+    {
+      breakpoint: 1200, // Large tablets / small laptops
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
       },
-      {
-        breakpoint: 1200, // Adjust breakpoint according to your design needs
-        settings: {
-          slidesToShow: 2, 
-          slidesToScroll: 1, 
-        },
+    },
+    {
+      breakpoint: 992, // Tablets
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
       },
-    ],
-  };
+    },
+    {
+      breakpoint: 576, // Mobile
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
   
  export const setting2 = {
     slidesToShow: 2,

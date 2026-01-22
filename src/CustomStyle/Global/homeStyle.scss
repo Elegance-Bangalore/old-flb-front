@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
-$green: #00a76f;
+
+$green: #17582c;
+$green-light: #76c25b;
 $white: #fff;
 $dark: #212b36;
 $gray: #637381;
@@ -14,10 +15,17 @@ $light-green: rgba(240, 255, 250, 1);
 $light-dark-green: rgba(0, 167, 111, 0.05);
 $light-red: rgba(255, 86, 48, 0.08);
 $light-yellow: rgba(245, 176, 65, 0.08);
+$body-bg-color: #F0FFFA;
 
-$font-main: "Open Sans", sans-serif;
+$font-main: "Urbanist", sans-serif;
 
 $card-border: #eee;
+
+
+$gradient-primary: linear-gradient(135deg, #17582c 0%, #76c25b 100%);
+$gradient-reverse: linear-gradient(135deg, #76c25b 0%, #17582c 100%);
+$gradient-subtle: linear-gradient(135deg, rgba(23, 88, 44, 0.15) 0%, rgba(118, 194, 91, 0.1) 100%);
+
 
 .dropdown-item.active,
 .dropdown-item:active {
@@ -37,7 +45,9 @@ $card-border: #eee;
 .fl-container {
   max-width: 1320px !important;
 }
-
+body {
+  background: $body-bg-color;
+}
 .fl-bg-green {
   background-color: $green;
 }
@@ -76,6 +86,8 @@ $card-border: #eee;
 .fl-bg-light-1 {
   background-color: $light-yellow;
 }
+
+
 
 .fl-card-border {
   border-color: $card-border !important;
@@ -186,14 +198,15 @@ $card-border: #eee;
 
 .fl-btn-green {
   background-color: $green;
-  border-radius: 0.5rem;
-  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  border-radius:1.5rem;
   border: 0;
   padding: 0.5rem 1.5rem;
   color: $white;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-family: $font-main;
-  font-weight: 600;
+  &:hover {
+    background-color: darken($green, 10%);
+  }
 }
 
 .fl-btn-white {
@@ -388,7 +401,152 @@ $card-border: #eee;
     margin: 0;
   }
 }
+.buyer-home-why-choose{
+  padding: 2rem 0 2rem 0;
+  background: #F0FFFA;
+  background: url("../../CustomAssets/BuyerImages/green-grass.png") repeat-x center bottom #F0FFFA;
+  background-size: 30%;
+  .why-choose-card{
+    height: 100%;
+    border-radius: 1rem;
+    box-shadow:
+      0px 0px 2px 0px rgba(145, 158, 171, 0.2),
+      0px 12px 24px -4px rgba(145, 158, 171, 0.12);
+    padding: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.600);
+    
+    &:hover {
+      transform: translateY(-10px);
+      background: $white;
+    }
+    .icon-wrapper{
+      display: table;
+      margin: auto;
+      padding: 10px;
+      border-radius: 50%;
+      color: $white;
+      background: $green-light;
+    }
+    .card-icon {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      display: grid;
+      place-content: center;
+      margin-bottom: 1rem;
+      svg {
+        width: 2rem;
+        height: 2rem;
+        color: $white;
+      }
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 1rem 0 0;
+      font-family: $font-main;
+      text-align: center;
+      font-weight: 600;
 
+    }
+  }
+}
+.PropertyCard-wrapper{
+  border-radius: 2rem;
+  background: $white;
+  position: relative;
+  .favorite-checkbox-wrapper{
+    position: absolute;
+    right: 20px;
+    z-index: 1;
+    top: 20px;
+     background: rgba(19, 19, 19, 0.3);
+     border-radius: 0.5rem;
+     padding: 0.2rem;
+     svg{
+      width: 1.5rem;
+      height: 1.5rem;
+      color: $white;
+     }
+  }
+  .PropertyCard-link{
+    cursor: pointer;
+     position: relative;
+     overflow: hidden;
+     display: block;
+    border-radius: 2rem;
+  }
+  img{
+    border-radius: 2rem;
+    height: 20rem;
+    
+     padding: 0.5rem;
+  }
+  .card-info{
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    border-radius:0 0 2rem 2rem;
+    padding:0 1.5rem;
+    color: #fff;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    .property-category{
+      background: rgba(255, 255, 255, 0.600);
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 15rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-shadow: 2px;
+      margin-bottom: 10px;
+    }
+    .property-title{
+      font-size: 1rem;
+      color: #fff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 0 5px;
+    }
+    .property-location{
+       font-size: 0.9rem;
+      color: #fff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 0 10px;
+      opacity: 0.8;
+    }
+    
+  }
+  .small-title{
+    font-size: 0.8rem;
+    display: block;
+    color: #000;
+    opacity: 0.6;
+  }
+  .main-info{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000;
+  }
+  .postedBy{
+    text-align: center;
+    padding: 0.3rem;
+    font-weight: 600!important;
+    border-top: 1px solid #ebebeb;
+  p{
+      font-size: 0.7rem!important;
+  }
+  }
+ 
+}
 @media (max-width: 768px) {
   .fl-light-gray-pill {
     width: 100%;
@@ -405,13 +563,26 @@ $card-border: #eee;
 }
 
 .buyer-home-header {
-  position: sticky;
+  position: fixed;
   z-index: 2000;
   top: 0;
+  width: 100%;
+  background: transparent;
+  .main-menu-color{
+    color:$white;
+  }
+  
+}
+.buyer-header-scroll{
+  background: #F0FFFA;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  .main-menu-color{
+    color:$dark;
+  }
 }
 
 .slick-slide {
-  padding: 0 20px;
+  padding: 0 15px;
 }
 .slick-list {
   margin: 0 -20px;
@@ -450,36 +621,54 @@ $card-border: #eee;
 
 .fl-header-search-wrapper {
   border-radius: 12px;
-  border: 0px solid #efefef;
-  background: linear-gradient(133deg, rgba(239, 239, 239, 0.3) -24.93%, rgba(255, 255, 255, 0.05) 109.66%);
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3.0250000953674316px);
   padding: 0.5rem;
   width: 45%;
-  margin-bottom: -5rem;
   z-index: 1100;
+  position: relative;
 }
 
+
 .fl-home-banner-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../../CustomAssets/BuyerImages/home-banner.png");
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.95)),
+    url("../../CustomAssets/BuyerImages/main-banner.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 40rem;
+  height: 30rem;
   width: 100%;
   display: grid;
   place-content: center;
+  position: relative;
+  z-index: 1;
+  h1{
+    font-size: 1.5rem;
+  }
 }
-
+.inner-page-default{
+  background: $green-light;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 5.5rem;
+}
 .fl-banner-heading {
   font-size: 3.4rem;
   font-family: $font-main;
 }
 .fl-banner-heading-normal {
-  font-size: 2rem;
+  font-size: 1rem;
   font-family: $font-main;
   font-weight: 600;
+}
+.bottom-Card{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.propCard {
+  margin: auto;
 }
 
 .fl-property-detail-banner {
@@ -518,7 +707,7 @@ $card-border: #eee;
 }
 
 .explore-wrapper {
-  margin-top: -13rem;
+  
 }
 .property-detail-wrapper { 
   background: $white !important;
@@ -683,50 +872,66 @@ $card-border: #eee;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  border-radius: 0.4rem;
+  width: 150px;
+  height: 50px;
   overflow: hidden;
-  border-radius: 1.2rem;
-  .explore-img {
-    width: 100%;
-    img {
-      aspect-ratio: 6/4;
+  img {
+      width: 150px;
+      height: 50px;
+      object-fit: cover;
+      opacity: .5;
+
     }
-    &::after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-      background-size: cover;
-      background-repeat: no-repeat;
-      z-index: 1;
-      left: 0;
-      transition: all 0.2s ease-in-out;
+    &:hover {
+      img {
+        transform: scale(1.1);
+        transition: all 0.5s ease-in-out;
+        opacity: 1;
+      }
+      h4 {
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+      }
     }
-  }
+
+  
   h4 {
     position: absolute;
     z-index: 1;
-    bottom: 3%;
     display: inline-block;
     margin-inline: auto;
     font-weight: 600;
-    font-size: 1.35rem;
+    font-size: 1rem;
     font-family: $font-main;
     transition: all 0.5s ease-in-out;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: 0;
+    opacity: 0.7;
   }
 
-  &:hover {
-    .explore-img::after {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
-    }
-
-    h4 {
-      font-size: 1.8rem;
-      transform: translateY(-5rem);
-    }
+ 
+}
+.explore-btn{
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 0rem;
+  .title{
+    color: $green;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: block;
+  }
+  span{
+    color: $green-light;
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: block;
+    font-weight: 600;
   }
 }
-
 .slick-dots {
   margin-top: 1rem;
   li {
@@ -749,9 +954,7 @@ $card-border: #eee;
 }
 
 .fl-property-card {
-  box-shadow:
-    0px 0px 2px 0px rgba(145, 158, 171, 0.2),
-    0px 12px 24px -4px rgba(145, 158, 171, 0.12);
+  border: 1px solid #eeeeee!important;
   z-index: 2;
   position: relative;
 }
@@ -895,31 +1098,29 @@ $card-border: #eee;
   }
 }
 
-.fl-home-property-slide-heading-0 {
+.fl-home-property-slide-heading {
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: row;
   h2 {
-    background: linear-gradient(to bottom, rgba(171, 31, 0, 1), rgba(255, 86, 48, 1), rgba(255, 255, 255, 1));
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: rgba(171, 31, 0, 1);
-    color: rgba(171, 31, 0, 1);
+    background: linear-gradient(to bottom, $green, $green-light, rgba(255, 255, 255, 1));
+   
+    color: $green-light;
+    opacity: 0.1;
     background-clip: text;
     display: inline-block;
-    font-size: 11rem;
+    font-size: 10rem;
     font-family: $font-main;
     text-transform: uppercase;
   }
   h3 {
-    color: $dark-red;
+    color: $green;
     font-size: 2rem;
     font-family: $font-main;
     position: absolute;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.865), rgba(255, 255, 255, 0.2)),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
-    bottom: 10%;
+    top: 50%;
+    transform: translate(0,-50%);
   }
 }
 
@@ -1387,7 +1588,7 @@ $card-border: #eee;
       -o-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
       box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
       color: #ffffff;
-      font-family: "Nunito";
+      font-family: "Urbanist";
       font-size: 16px;
       font-weight: bold;
       height: 50px;
@@ -1421,7 +1622,7 @@ $card-border: #eee;
   }
 }
 .header-logo {
-  width: 12rem;
+  width: 10rem;
 }
 .footer-logo {
   width: 20rem;

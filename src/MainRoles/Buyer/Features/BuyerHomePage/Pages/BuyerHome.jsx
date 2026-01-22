@@ -11,12 +11,11 @@ import WhyChooseSection from "../Components/HomeComponents/WhyChooseSection";
 import TrendingProperties from "../Components/HomeComponents/TrendingProperties";
 import CuratedDeals from "../Components/HomeComponents/CuratedDeals";
 import { setting2, settings } from "@/CustomServices/sliderSetting";
-import PropertyTypeCard from "../Components/HomeComponents/PropertyTypeCard";
 import HighlyRecommendedProperty from "../Components/HomeComponents/HighlyRecommendedProperty";
 import CategoryLoader from "@/CustomCommon/MaterialUi/CategoryLoader";
 import SearchIcon from "@mui/icons-material/Search";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import HomeBannerSlider from "../Components/HomeComponents/HomeBannerSlider";
 import FeatureDeveloper from "../Components/HomeComponents/FeatureDeveloper";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -26,10 +25,14 @@ import AnimatedSearch from "@/CustomCommon/AllRoles/AnimatedSearch";
 import usePageSEO from "@/Seo";
 
 const BuyerHome = () => {
+  const location = useLocation();
   const [propertiesListCategoryWise, setPropertiesListCategoryWise] = useState(
     []
   );
   const [categoryLoader, setCategoryLoader] = useState(true);
+  
+  // Check if current page is home page
+  const isHomePage = location.pathname === "/" || location.pathname === "/home";
 
   function propertiesList() {
     getPropertyForHomePage()
@@ -61,8 +64,8 @@ const BuyerHome = () => {
   return(
     <>
 
-    < main className = "buyers-main" style={{maxWidth:"100vw",overflow:"hidden"}} >
-        <BuyerHeader />
+    < main className = {`buyers-main ${!isHomePage ? 'inner-page-default' : ''}`} style={{maxWidth:"100vw",overflow:"hidden"}} >
+        <BuyerHeader headerHide={true} />
         <DefaultMobileMenu />
         <div className="mobile-banner">
           <HomeBannerSlider />
@@ -72,18 +75,7 @@ const BuyerHome = () => {
         </div>
 
         <section className="fl-bg-light-green mobile-explore">
-          <div className="container fl-container py-5">
-            <div className="explore-wrapper fl-glass-bg rounded-5 p-2">
-              <div className="bg-white rounded-5 pb-5 pt-4">
-                <div className="text-center">
-                  <h2 className="fl-heading-2 mb-5 fl-text-dark">
-                  Explore Farmland, Agriculture Land, Estates & Farmhouses
-                  </h2>
-                </div>
-                <PropertyTypeCard />
-              </div>
-            </div>
-          </div>
+       
 
           <CuratedDeals settings={settings} setting2={setting2} />
         </section>
